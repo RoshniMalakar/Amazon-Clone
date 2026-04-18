@@ -1,0 +1,3253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background-color: lightgrey;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .first_navbar {
+        display: flex;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        height: 50px;
+        /* position: sticky;
+        top: 0;
+        z-index: 3; */
+      }
+      .first_navbar .image img {
+        width: 120px;
+        height: 50px;
+        padding: 2px;
+      }
+      .first_navbar .image img:hover {
+        border: 1px solid white;
+        padding: 1px;
+      }
+      .para1 {
+        padding: 5px;
+        background-color: black;
+        color: white;
+        align-content: center;
+      }
+      .para1:hover {
+        border: 1px solid white;
+        padding: 4px;
+      }
+      .para1txt {
+        font-size: 13px;
+        color: darkgrey;
+        padding-left: 26px;
+        background-color: black;
+      }
+      .search {
+        display: flex;
+        height: 40px;
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      .ssearch {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      .isearch {
+        width: 450px;
+        font-size: 15px;
+        padding: 10px;
+      }
+      .srcbtn {
+        display: flex;
+      }
+      .ilogo {
+        background-color: orange;
+        color: black;
+        align-content: center;
+        padding: 8px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .language {
+        display: flex;
+        padding: 5px;
+        margin-left: 20px;
+        align-items: center;
+      }
+      .language:hover {
+        border: 1px solid white;
+        padding: 2px 4px;
+      }
+      .flag {
+        width: 30px;
+        height: 20px;
+      }
+      .language-select {
+        background-color: black;
+        color: white;
+        border: none;
+      }
+      .account {
+        padding: 5px;
+        align-content: center;
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+      }
+      .acc1 {
+        font-size: 12px;
+      }
+      .account:hover {
+        border: 1px solid white;
+        padding: 4px;
+      }
+      .account:hover .drop_down {
+        display: block;
+      }
+      .drop_down {
+        display: none;
+        position: absolute;
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        width: 500px;
+        right: 5px;
+        top: 50px;
+        z-index: 2;
+      }
+      .drop_down button {
+        margin-top: 10px;
+        background-color: orange;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 100px;
+      }
+      .drop_down p {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+      }
+      .drop_down .list {
+        display: flex;
+        justify-content: space-between;
+      }
+      .drop_down .list .list_1 {
+        padding: 20px;
+        text-align: left;
+        width: 200px;
+      }
+      .drop_down .list .list_2 {
+        padding: 20px;
+        text-align: left;
+        width: 200px;
+      }
+      .drop_down .list ul {
+        margin: 10px 0px;
+      }
+      .drop_down .list ul li {
+        list-style-type: none;
+        padding: 3px 0px;
+      }
+      .drop_down .list ul a {
+        color: grey;
+        text-decoration: none;
+      }
+      .drop_down .list ul a:hover {
+        color: orange;
+        text-decoration: underline;
+      }
+      .return {
+        padding: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        align-content: center;
+      }
+      .return:hover {
+        border: 1px solid white;
+        padding: 4px;
+      }
+      .cart {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .cart:hover {
+        border: 1px solid white;
+        padding: 9px;
+      }
+      .cart img {
+        height: 45px;
+      }
+      .cart p {
+        padding-top: 20px;
+      }
+      .second_navbar {
+        background-color: rgb(90, 86, 86);
+        color: white;
+        display: flex;
+        height: 40px;
+        align-items: center;
+        /* position: sticky; */
+        /* top: 60px; */
+        /* z-index: 3; */
+      }
+      .second_navbar .all {
+        display: flex;
+        align-items: center;
+        padding: 9px;
+        margin-left: 5px;
+        position: relative;
+      }
+      .second_navbar .all .slide {
+        display: none;
+        position: absolute;
+        width: 350px;
+        background-color: white;
+        color: black;
+        top: -61px;
+        margin: 0px -14px;
+        z-index: 50;
+      }
+      .second_navbar .all .slide h2 {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+      }
+      .second_navbar .all .slide h2 i {
+        color: white;
+      }
+      .second_navbar .all:hover .slide {
+        display: block;
+      }
+      .second_navbar .all .slider {
+        overflow: hidden;
+        overflow-y: scroll;
+        height: 600px;
+      }
+      .second_navbar .all .slider h3 {
+        padding: 10px 20px;
+      }
+      .second_navbar .all .slider p {
+        color: rgb(100, 99, 99);
+        padding: 10px 20px;
+      }
+      .second_navbar .all .slider p a {
+        color: rgb(100, 99, 99);
+        text-decoration: none;
+      }
+      .second_navbar .all .slider p i {
+        text-align: end;
+      }
+      .second_navbar .list {
+        margin-left: 10px;
+        display: flex;
+        gap: 5px;
+        list-style-type: none;
+        align-items: center;
+      }
+      .second_navbar .list li {
+        padding: 10px 5px;
+      }
+      .second_navbar .list li:hover {
+        border: 1px solid white;
+        padding: 9px 4px;
+      }
+
+      .list .Aprime {
+        position: relative;
+      }
+      .list .prime {
+        display: none;
+        position: absolute;
+        top: 34px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        width: 350px;
+        gap: 10px;
+        z-index: 2;
+      }
+      .list .prime p {
+        color: rgb(109, 108, 108);
+        padding: 10px 0px 0px 0px;
+      }
+      .list .prime button {
+        background-color: rgb(251, 255, 0);
+        border: none;
+        border-radius: 50px;
+        padding: 10px 140px;
+      }
+      .list .prime .img_1 {
+        background-color: blue;
+        width: 350px;
+        margin: 10px 0px;
+      }
+      .list .prime .img_2 {
+        text-align: right;
+        margin: 10px 0px 0px 0px;
+      }
+      .list .prime .img_2 img {
+        width: 80px;
+      }
+      .list .Aprime:hover .prime {
+        display: block;
+      }
+
+      .home .image img {
+        width: 100%;
+        /* height: 500px; */
+        position: relative;
+      }
+      .box1 {
+        width: 97.5%;
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        bottom: -50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        z-index: 1;
+      }
+      .box1 img {
+        width: 100%;
+      }
+      .box1 .Container1 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box1 .Container1 h4 {
+        font-size: 20px;
+      }
+      .box1 .Container1 .con1_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-top: 10px;
+        background-color: white;
+      }
+      .box1 .Container2 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box1 .Container2 h4 {
+        font-size: 20px;
+      }
+      .box1 .Container2 .con2_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+      .box1 .Container3 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box1 .Container3 h4 {
+        font-size: 20px;
+      }
+      .box1 .Container3 .con3_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+      .box1 .Container4 {
+        background-color: transparent;
+        width: 25%;
+      }
+      .box1 .Container4 .con4_box1 {
+        background-color: white;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-left: 30px;
+        height: 100px;
+      }
+      .box1 .Container4 .con4_box1 button {
+        background-color: rgb(238, 241, 44);
+        border: none;
+        padding: 10px 70px;
+        border-radius: 50px;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .box1 .Container4 .con4_box2 {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+      .box1 .Container4 .con4_box2 img {
+        height: 150px;
+      }
+
+      .box2 {
+        width: 97.5%;
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        bottom: -420px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .box2 img {
+        width: 100%;
+      }
+      .box2 .Container1 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box2 .Container1 h4 {
+        font-size: 20px;
+      }
+      .box2 .Container1 .con1_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-top: 10px;
+        background-color: white;
+      }
+      .box2 .Container2 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box2 .Container2 h4 {
+        font-size: 20px;
+      }
+      .box2 .Container2 .con2_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+      .box2 .Container3 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box2 .Container3 h4 {
+        font-size: 20px;
+      }
+      .box2 .Container3 .con3_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+      .box2 .Container4 {
+        padding: 20px;
+        background-color: white;
+        width: 25%;
+      }
+      .box2 .Container4 h4 {
+        font-size: 20px;
+      }
+      .box2 .Container4 .con4_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      .item_con {
+        margin-top: 450px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+        background-color: white;
+      }
+      .item_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .item_con .txt a {
+        text-decoration: none;
+      }
+      .item_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .item_img img {
+        padding: 10px;
+      }
+
+      .dress_con {
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      .dress_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .dress_con .txt a {
+        text-decoration: none;
+      }
+      .dress_con .dress_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+        gap: 50px;
+      }
+      .dress_con .dress_img img {
+        padding: 10px;
+      }
+
+      .box_4 {
+        width: 97.5%;
+        display: flex;
+        gap: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+      }
+      .box_4 .Container1 {
+        background-color: white;
+        width: 290px;
+        padding: 10px;
+      }
+      .box_4 .Container1 h4 {
+        font-size: 20px;
+      }
+      .box_4 .Container1 .con1_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding-top: 10px;
+        background-color: white;
+        height: 300px;
+        align-items: center;
+        text-align: center;
+      }
+      .box_4 .Container1 .con1_boxes img {
+        background-color: white;
+        width: 130px;
+        height: 100px;
+      }
+      .box_4 .Container2 {
+        background-color: white;
+        width: 290px;
+        padding: 10px;
+      }
+      .box_4 .Container2 h4 {
+        font-size: 20px;
+      }
+      .box_4 .Container2 .con2_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 10px;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+      }
+      .box_4 .Container2 .con2_boxes img {
+        padding: 0px 20px;
+        background-color: white;
+        width: 90px;
+        height: 150px;
+      }
+      .box_4 .Container3 {
+        background-color: white;
+        width: 290px;
+        padding: 10px;
+      }
+      .box_4 .Container3 h4 {
+        font-size: 20px;
+      }
+      .box_4 .Container3 .con3_boxes {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+        gap: 20px;
+        margin: 40px 0px;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+      }
+      .box_4 .Container3 .con3_boxes img {
+        background-color: white;
+        width: 150px;
+      }
+      .box_4 .Container4 {
+        background-color: white;
+        width: 290px;
+        padding: 10px;
+      }
+      .box_4 .Container4 h4 {
+        font-size: 20px;
+      }
+      .box_4 .Container4 .con4_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 10px;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        height: 345px;
+      }
+      .box_4 .Container4 .con4_boxes img {
+        background-color: white;
+        width: 131px;
+        height: 100px;
+      }
+      .box_4 .Container4 .con4_boxes .con4_box3 img {
+        width: 50px;
+        height: 150px;
+      }
+      .box_4 .Container4 .con4_boxes .con4_box4 img {
+        width: 100px;
+        height: 150px;
+      }
+
+      .bike_con {
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+        background-color: white;
+      }
+      .bike_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .bike_con .txt a {
+        text-decoration: none;
+      }
+      .bike_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .bike_img img {
+        padding: 10px;
+      }
+
+      .box3 {
+        width: 97.5%;
+        display: flex;
+        gap: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        height: 350px;
+      }
+      .box3 .Container1 {
+        padding: 20px;
+        background-color: white;
+        width: 290px;
+      }
+      .box3 .Container1 img {
+        padding: 0px;
+        background-color: white;
+        width: 90px;
+      }
+      .box3 .Container1 h4 {
+        font-size: 20px;
+      }
+      .box3 .Container1 .con1_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-top: 10px;
+        background-color: white;
+      }
+      .box3 .Container2 {
+        padding: 20px;
+        background-color: white;
+        width: 290px;
+      }
+      .box3 .Container2 h4 {
+        font-size: 20px;
+      }
+      .box3 .Container2 .con2_box1 img {
+        width: 150px;
+        padding: 0px 60px;
+      }
+      .box3 .Container2 .con2_box2 {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+        background-color: white;
+      }
+      .box3 .Container2 .con2_box2 img {
+        margin: 5px;
+        padding: 5px;
+        width: 50px;
+        border: 1px solid grey;
+        border-radius: 20px;
+      }
+      .box3 .Container3 {
+        padding: 20px;
+        background-color: white;
+        width: 290px;
+      }
+      .box3 .Container3 h4 {
+        font-size: 20px;
+      }
+      .box3 .Container3 .con3_box1 img {
+        width: 150px;
+        height: 130px;
+        padding: 5px 60px;
+      }
+      .box3 .Container3 .con3_box2 {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+        background-color: white;
+      }
+      .box3 .Container3 .con3_box2 img {
+        margin: 5px;
+        padding: 5px;
+        width: 50px;
+        border: 1px solid grey;
+        border-radius: 20px;
+      }
+      .box3 .Container4 {
+        padding: 20px;
+        background-color: white;
+        width: 290px;
+      }
+      .box3 .Container4 h4 {
+        font-size: 20px;
+      }
+      .box3 .Container4 .con4_boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-top: 10px;
+        background-color: white;
+      }
+      .box3 .Container4 .con4_boxes img {
+        padding: 0px 20px;
+        background-color: white;
+        width: 55px;
+        height: 125px;
+      }
+
+      .thing_con {
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      .thing_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .thing_con .txt a {
+        text-decoration: none;
+      }
+      .thing_con .thing_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .thing_con .thing_img img {
+        padding: 10px;
+      }
+
+      .one_item {
+        margin-top: 20px;
+        background-color: white;
+        display: flex;
+        padding: 10px;
+        margin-left: 200px;
+        margin-right: 200px;
+        align-items: center;
+      }
+      .one_item img {
+        padding: 10px 20px;
+      }
+      .one_item p {
+        padding: 10px;
+      }
+      .one_item p button {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: orange;
+        border: none;
+        border-radius: 50px;
+      }
+
+      .kit_con {
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      .kit_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .kit_con .txt a {
+        text-decoration: none;
+      }
+      .kit_con .kit_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .kit_con .kit_img img {
+        padding: 10px;
+      }
+
+      .watch {
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      .watch .txt {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .watch .txt a {
+        text-decoration: none;
+      }
+      .watch .video-img {
+        display: flex;
+        gap: 5px;
+        padding: 10px 0px;
+      }
+      .watch .video-img .video video {
+        width: 500px;
+        height: 290px;
+      }
+      .watch .video-img .video p {
+        color: gray;
+        font-size: 10px;
+      }
+      .watch .video-img .video p a {
+        color: rgb(179, 175, 175);
+        text-decoration: none;
+      }
+      .watch .video-img .images {
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .watch .video-img .images .img {
+        border: 1px solid rgb(179, 175, 175);
+        border-radius: 10px;
+        padding: 5px;
+      }
+      .watch .video-img .images .img img {
+        width: 150px;
+      }
+      .watch .video-img .images .img p {
+        padding: 20px 0px;
+      }
+
+      .summer_con {
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+      .summer_con .txt {
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+      }
+      .summer_con .txt a {
+        text-decoration: none;
+      }
+      .summer_con .summer_img {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+      }
+      .summer_con .summer_img img {
+        padding: 10px;
+      }
+
+      .text {
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: white;
+      }
+      .text hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .text button {
+        background-color: rgb(238, 241, 44);
+        border: none;
+        padding: 10px 100px;
+        border-radius: 50px;
+        margin-top: 10px;
+      }
+      .text p {
+        margin-top: 10px;
+      }
+
+      .footer {
+        background-color: rgb(52 51 57);
+      }
+      .footer .btn {
+        background-color: rgb(103, 100, 114);
+        text-align: center;
+        justify-content: center;
+        padding: 15px 0px;
+      }
+      .footer .btn a {
+        text-decoration: none;
+        color: white;
+      }
+      .footer1 {
+        display: flex;
+        padding: 20px;
+        justify-content: space-around;
+      }
+      .footer1 ul {
+        list-style-type: none;
+        color: white;
+        padding: 0px 20px;
+        width: 200px;
+      }
+      .footer1 ul li {
+        padding: 3px;
+      }
+      .footer1 ul li:first-child {
+        font-weight: bold;
+      }
+      .footer1 ul li a {
+        color: rgb(185, 176, 176);
+        text-decoration: none;
+      }
+      .footer1 ul li a:hover {
+        text-decoration: underline;
+      }
+      .footer2 {
+        padding-top: 20px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .footer2 .f2_img img {
+        width: 160px;
+        height: 60px;
+      }
+      .footer2 .f2_select {
+        border: 1px solid rgb(185, 176, 176);
+        background-color: rgb(52 51 57);
+        color: rgb(185, 176, 176);
+        padding: 10px;
+        margin-left: 50px;
+      }
+      .footer2 select {
+        background-color: rgb(52 51 57);
+        color: rgb(185, 176, 176);
+        border: none;
+        justify-content: center;
+        align-items: center;
+      }
+      .footer2 .img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border: 1px solid rgb(185, 176, 176);
+        height: 15px;
+        gap: 10px;
+        color: rgb(185, 176, 176);
+      }
+      .footer2 .img img {
+        width: 20px;
+      }
+
+      .last_footer {
+        background-color: rgb(18, 16, 31);
+        color: white;
+      }
+      .last_footer .lastf_1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 700px;
+        margin-left: 350px;
+      }
+      .last_footer .lastf_1 p {
+        padding: 20px;
+        width: 150px;
+        font-size: 13px;
+        color: white;
+      }
+      .last_footer .lastf_1 a {
+        color: rgb(185, 176, 176);
+        text-decoration: none;
+      }
+      .last_footer .lastf_1 a:hover {
+        text-decoration: underline;
+      }
+      .last_footer .lastf_2 {
+        text-align: center;
+      }
+      .last_footer .lastf_2 {
+        padding: 20px;
+      }
+      .last_footer .lastf_2 a {
+        padding: 5px;
+        text-decoration: none;
+        color: white;
+      }
+      .last_footer .lastf_2 a:hover {
+        text-decoration: underline;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .first_navbar {
+          width: 1110px;
+          padding: 30px 5px;
+          display: block;
+          height: fit-content;
+          font-size: 40px;
+        }
+        .first_navbar .image {
+          text-align: center;
+        }
+        .first_navbar .image img:hover {
+          border: none;
+        }
+        .first_navbar .image img {
+          width: 400px;
+          height: 200px;
+        }
+        .first_navbar .para1 {
+          width: fit-content;
+        }
+        .first_navbar .para1:hover {
+          border: none;
+        }
+        .para1txt {
+          font-size: 40px;
+          padding-left: 60px;
+        }
+        .search {
+          height: 100px;
+          width: fit-content;
+          justify-content: center;
+          margin: 40px 10px;
+        }
+        .ssearch {
+          font-size: 50px;
+          padding: 10px 20px;
+        }
+        .srcbtn {
+          font-size: 50px;
+        }
+        .isearch {
+          font-size: 40px;
+          width: fit-content;
+        }
+        .srcbtn input {
+          padding: 10px 200px 10px 20px;
+        }
+        .account {
+          font-size: 45px;
+          width: fit-content;
+          margin-top: -285px;
+          margin-left: 655px;
+        }
+        .account:hover {
+          border: none;
+        }
+        .acc1 {
+          font-size: 50px;
+        }
+        .drop_down {
+          right: -10px;
+          top: 140px;
+          width: 1050px;
+        }
+        .drop_down .list {
+          justify-content: space-around;
+        }
+        .drop_down button {
+          padding: 20px 200px;
+          font-size: 40px;
+          margin-bottom: 20px;
+        }
+        .drop_down .list .list_1 {
+          width: fit-content;
+        }
+        .drop_down .list .list_2 {
+          width: fit-content;
+        }
+        .return {
+          display: none;
+        }
+        .language {
+          display: none;
+        }
+        .cart {
+          width: fit-content;
+          margin-left: 990px;
+          margin-top: 25px;
+          padding: 10px;
+        }
+        .cart img {
+          height: 75px;
+        }
+        .cart p {
+          display: none;
+        }
+
+        .second_navbar {
+          font-size: 50px;
+          width: 1120px;
+          padding: 30px 0px;
+        }
+        .second_navbar .all p {
+          display: none;
+        }
+        .second_navbar .list {
+          align-items: center;
+          overflow: hidden;
+          overflow-x: scroll;
+          gap: 30px;
+        }
+        .second_navbar .list li {
+          white-space: nowrap;
+        }
+        .second_navbar .list li:hover {
+          border: none;
+        }
+        .second_navbar .list .Aprime {
+          display: none;
+        }
+
+        .home .image img {
+          width: 1120px;
+        }
+        .box1 {
+          top: 850px;
+          flex-direction: column;
+          gap: 30px;
+          width: 1100px;
+        }
+        .box1 img {
+          width: 450px;
+        }
+        .box1 .Container1 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box1 .Container1 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box1 .Container1 .con1_boxes {
+          gap: 50px;
+          padding: 30px;
+        }
+        .box1 .Container1 .con1_boxes p {
+          padding-left: 20px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box1 .Container2 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box1 .Container2 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box1 .Container2 .con2_boxes {
+          padding: 30px;
+          gap: 50px;
+        }
+        .box1 .Container2 .con2_boxes p {
+          padding-left: 20px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box1 .Container3 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box1 .Container3 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box1 .Container3 .con3_boxes {
+          padding-top: 30px;
+        }
+        .box1 .Container3 .con3_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box1 .Container4 {
+          display: none;
+        }
+        .box2 {
+          top: 3640px;
+          flex-direction: column;
+          gap: 30px;
+          width: 1100px;
+        }
+        .box2 img {
+          width: 450px;
+        }
+        .box2 .Container1 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box2 .Container1 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box2 .Container1 .con1_boxes {
+          padding-top: 30px;
+        }
+        .box2 .Container1 .con1_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box2 .Container2 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box2 .Container2 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box2 .Container2 .con2_boxes {
+          padding-top: 30px;
+        }
+        .box2 .Container2 .con2_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box2 .Container3 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box2 .Container3 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box2 .Container3 .con3_boxes {
+          padding-top: 30px;
+        }
+        .box2 .Container3 .con3_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box2 .Container4 {
+          width: 95%;
+          gap: 20px;
+          text-align: center;
+        }
+        .box2 .Container4 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box2 .Container4 .con4_boxes {
+          padding-top: 30px;
+        }
+        .box2 .Container4 .con4_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+
+        .item_con {
+          margin: 6100px 20px 0px 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .item_con .txt {
+          font-size: 40px;
+        }
+        .item_con .item_img {
+          padding: 20px 0px;
+        }
+        .item_con .item_img img {
+          padding: 10px 50px;
+          width: 500px;
+          height: 500px;
+        }
+
+        .dress_con {
+          margin: 30px 20px 0px 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .dress_con .txt {
+          font-size: 40px;
+        }
+        .dress_con .dress_img {
+          padding: 20px 0px;
+        }
+        .dress_con .dress_img img {
+          padding: 10px 50px;
+          width: 500px;
+          height: 500px;
+        }
+
+        .box_4 {
+          margin-top: 30px;
+          flex-direction: column;
+          gap: 30px;
+          width: 1100px;
+        }
+        .box_4 .Container1 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box_4 .Container1 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box_4 .Container1 .con1_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box_4 .Container1 .con1_boxes img {
+          width: 250px;
+          height: 250px;
+        }
+        .box_4 .Container1 .con1_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box_4 .Container2 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box_4 .Container2 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box_4 .Container2 .con2_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box_4 .Container2 .con2_boxes img {
+          width: 200px;
+          height: 300px;
+        }
+        .box_4 .Container2 .con2_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+        .box_4 .Container3 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box_4 .Container3 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box_4 .Container3 .con3_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+          margin: 0px 250px;
+        }
+        .box_4 .Container3 .con3_boxes img {
+          width: 400px;
+        }
+        .box_4 .Container3 .txt p {
+          padding: 20px;
+          text-align: left;
+          font-size: 45px;
+        }
+        .box_4 .Container4 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box_4 .Container4 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box_4 .Container4 .con4_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box_4 .Container4 .con4_boxes img {
+          width: 250px;
+          height: 280px;
+        }
+        .box_4 .Container4 .con4_boxes .con4_box3 img {
+          width: 100px;
+          height: 300px;
+        }
+        .box_4 .Container4 .con4_boxes .con4_box4 img {
+          width: 100px;
+          height: 300px;
+        }
+        .box_4 .Container4 .con4_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+
+        .bike_con {
+          margin: 30px 20px 0px 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .bike_con .txt {
+          font-size: 40px;
+          justify-content: space-between;
+        }
+        .bike_con .bike_img {
+          padding: 20px 0px;
+          margin: 0px 30px;
+        }
+        .bike_con .bike_img img {
+          padding: 10px 50px;
+          height: 500px;
+        }
+
+        .box3 {
+          flex-direction: column;
+          margin-top: 30px;
+          width: 1100px;
+        }
+        .box3 .Container1 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box3 .Container1 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box3 .Container1 .con1_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box3 .Container1 .con1_boxes img {
+          width: 250px;
+          height: 300px;
+        }
+        .box3 .Container1 .con1_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+
+        .box3 .Container2 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box3 .Container2 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box3 .Container2 .con2_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box3 .Container2 .con2_boxes img {
+          width: 300px;
+          height: 300px;
+        }
+        .box3 .Container2 .con2_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 43px;
+        }
+        .box3 .Container2 .con2_box2 img {
+          width: 210px;
+          height: 210px;
+        }
+
+        .box3 .Container3 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box3 .Container3 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box3 .Container3 .con3_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box3 .Container3 .con3_boxes img {
+          width: 300px;
+          height: 300px;
+        }
+        .box3 .Container3 .con3_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 43px;
+        }
+        .box3 .Container3 .con3_box2 img {
+          width: 210px;
+          height: 210px;
+        }
+
+        .box3 .Container4 {
+          width: 95%;
+          height: fit-content;
+          text-align: center;
+          padding: 20px;
+        }
+        .box3 .Container4 h4 {
+          font-size: 60px;
+          text-align: center;
+        }
+        .box3 .Container4 .con4_boxes {
+          padding-top: 30px;
+          height: fit-content;
+          gap: 50px;
+        }
+        .box3 .Container4 .con4_boxes img {
+          width: 250px;
+          height: 300px;
+        }
+        .box3 .Container4 .con4_boxes p {
+          padding: 0px 0px 20px 40px;
+          text-align: left;
+          font-size: 30px;
+        }
+
+        .thing_con {
+          margin: 3270px 20px 20px 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .thing_con .txt {
+          font-size: 40px;
+        }
+        .thing_con .thing_img {
+          padding: 20px 0px;
+        }
+        .thing_con .thing_img img {
+          padding: 10px 50px;
+          height: 500px;
+        }
+
+        .one_item {
+          margin: 20px;
+          background-color: white;
+          width: 1042px;
+          justify-content: space-between;
+          padding: 30px 20px;
+        }
+        .one_item img {
+          height: 400px;
+        }
+        .one_item p {
+          padding: 50px;
+          font-size: 30px;
+          text-align: center;
+        }
+        .one_item p button {
+          margin: 30px 10px;
+          padding: 20px 150px;
+          font-size: 30px;
+        }
+
+        .kit_con {
+          margin: 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .kit_con .txt {
+          font-size: 40px;
+          justify-content: space-between;
+        }
+        .kit_con .kit_img {
+          padding: 20px 0px;
+        }
+        .kit_con .kit_img img {
+          padding: 10px 50px;
+          height: 500px;
+        }
+
+        .watch {
+          margin: 20px;
+          width: 1042px;
+          padding: 20px;
+        }
+        .watch .txt {
+          font-size: 40px;
+        }
+        .watch .txt p {
+          display: none;
+        }
+        .watch .video-img {
+          display: block;
+          text-align: center;
+        }
+        .watch .video-img .video {
+          padding: 20px 0px;
+        }
+        .watch .video-img .video video {
+          width: 800px;
+          height: 400px;
+          padding: 5px 0px;
+        }
+        .watch .video-img .video p {
+          font-size: 30px;
+        }
+        .watch .video-img .images {
+          padding: 10px;
+          margin: 0px 40px;
+          gap: 40px;
+        }
+        .watch .video-img .images .img {
+          padding: 20px;
+        }
+        .watch .video-img .images .img img {
+          width: 350px;
+        }
+        .watch .video-img .images .img p {
+          font-size: 40px;
+          padding: 10px 20px;
+          text-align: left;
+        }
+
+        .summer_con {
+          margin: 20px;
+          padding: 20px;
+          width: 1042px;
+        }
+        .summer_con .txt {
+          font-size: 40px;
+          justify-content: space-between;
+        }
+        .summer_con .summer_img {
+          padding: 20px 0px;
+        }
+        .summer_con .summer_img img {
+          padding: 10px 50px;
+          height: 500px;
+        }
+        .text {
+          width: 1080px;
+          margin-top: 30px;
+          font-size: 30px;
+          padding: 40px 20px;
+        }
+        .text hr {
+          margin: 10px 0px;
+        }
+        .text h1 {
+          padding: 20px 0px;
+        }
+        .text button {
+          margin: 20px;
+          padding: 20px 300px;
+          font-size: 40px;
+        }
+        .text p {
+          font-size: 45px;
+          padding: 20px 0px;
+        }
+
+        .footer {
+          width: 1120px;
+          margin-top: 0px;
+          font-size: 30px;
+        }
+        .footer .footer1 {
+          font-size: 25px;
+          gap: 40px;
+        }
+        .footer .footer1 ul {
+          padding: 0px;
+          width: fit-content;
+        }
+        .footer .footer2 {
+          display: none;
+        }
+
+        .last_footer {
+          width: 1120px;
+          font-size: 30px;
+          /* padding: 20px; */
+        }
+        .last_footer .lastf_1 {
+          margin-left: 0px;
+          /* width: fit-content; */
+          padding: 20px;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          /* justify-content: space-evenly; */
+        }
+        .last_footer .lastf_1 p {
+          font-size: 30px;
+          width: fit-content;
+          padding: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="first_navbar">
+      <div class="image">
+        <img
+          src="https://tiimg.tistatic.com/fp/1/002/841/amazon-gift-voucher-667.jpg"
+          alt=""
+        />
+      </div>
+      <div class="para1">
+        <p class="para1txt">Delivering to Mumbai 400001</p>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <b>Update Location</b>
+      </div>
+      <div class="search">
+        <select name="" class="ssearch" title="Product">
+          <option value="">All</option>
+          <option value="">All</option>
+          <option value="">All</option>
+          <option value="">All</option>
+          <option value="">All</option>
+          <option value="">All</option>
+        </select>
+        <div class="srcbtn">
+          <input type="text" class="isearch" placeholder="Search Amazon.in" />
+          <p class="ilogo"><i class="fa fa-search" aria-hidden="true"></i></p>
+        </div>
+      </div>
+      <div class="language">
+        <img
+          class="flag"
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png"
+          alt=""
+        />
+        <select title="Language" class="language-select">
+          <option value="">En</option>
+          <option value="">Hi</option>
+          <option value="">Ta</option>
+          <option value="">Mr</option>
+          <option value="">Ba</option>
+          <option value="">Te</option>
+        </select>
+      </div>
+      <div class="account">
+        <p class="acc1">Hello, Sign in</p>
+        <p>
+          <b>Account & Lists</b
+          ><i class="fa fa-caret-down" aria-hidden="true"></i>
+        </p>
+        <div class="drop_down">
+          <button type="submit">Sign in</button>
+          <p>New Customer?<a href="#">Start here</a></p>
+          <hr />
+          <div class="list">
+            <div class="list_1">
+              <h3>Your Lists</h3>
+              <ul>
+                <li><a href="#">Create a Wish List</a></li>
+                <li><a href="#">Wish from any Website</a></li>
+                <li><a href="#">Baby Wishlist</a></li>
+                <li><a href="#">Discover your style</a></li>
+                <li><a href="#">Explore showroom</a></li>
+              </ul>
+            </div>
+            <div class="list_2">
+              <h3>Your Account</h3>
+              <ul>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Your Orders</a></li>
+                <li><a href="#">Your Wishlist</a></li>
+                <li><a href="#">Keep shoping for</a></li>
+                <li><a href="#">Your recommendations</a></li>
+                <li><a href="#">Your Prime Membership</a></li>
+                <li><a href="#">Your Prime Video</a></li>
+                <li><a href="#">Your Subscribe & Save items</a></li>
+                <li><a href="#">Membership & Subscribtion</a></li>
+                <li><a href="#">Your Seller Account</a></li>
+                <li><a href="#">Manage your Content & devices</a></li>
+                <li><a href="#">Register For Free Business Account</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="return">
+        <p>Returns<br /><b>& Orders</b></p>
+      </div>
+      <div class="cart">
+        <img
+          src="https://www.citypng.com/public/uploads/preview/hd-shopping-cart-white-logo-icon-transparent-png-701751694973936amdcratijm.png"
+          alt=""
+        />
+        <p><b>Cart</b></p>
+      </div>
+    </div>
+    <div class="second_navbar">
+      <div class="all">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+        <p id="allt">All</p>
+        <div class="slide">
+          <h2>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>Hello, Sign in
+          </h2>
+          <div class="slider">
+            <h3>Trending</h3>
+            <p><a href="#">BestSellers</a></p>
+            <p><a href="#">New Release</a></p>
+            <p><a href="#">Movers and Shakers</a></p>
+            <hr />
+            <h3>Digital Content and Devices</h3>
+            <p>
+              <a href="#">Echo & Alexa</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <p>
+              <a href="#">Fire TV</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <p>
+              <a href="#">Kindle E-Readers & eBooks</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <p>
+              <a href="#">Audible Audiobooks</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <p>
+              <a href="#">Amazon Prime Video</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <p>
+              <a href="#">Amazon Prime Music</a
+              ><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </p>
+            <hr />
+            <h3>Shop by Category</h3>
+            <p><a href="#">Mobiles, Computers</a></p>
+            <p><a href="#">TV, Appliances, Electronics</a></p>
+            <p><a href="#">Men's Fashion</a></p>
+            <p><a href="#">Women's Fashion</a></p>
+            <hr />
+            <h3>Programs & Features</h3>
+            <p><a href="#">Gift card & Mobile Recharge</a></p>
+            <p><a href="#">Amazon Launchpad</a></p>
+            <p><a href="#">Amazon Bussiness</a></p>
+            <p><a href="#">Handloom & Handicraft</a></p>
+            <hr />
+            <h3>Help & Settings</h3>
+            <p><a href="#">Your Account</a></p>
+            <p><a href="#">Customer Services</a></p>
+            <p><a href="#">Sign in</a></p>
+          </div>
+        </div>
+      </div>
+      <ul class="list">
+        <li>Fresh</li>
+        <li>MX Player</li>
+        <li>Sell</li>
+        <li>Bestsellers</li>
+        <li>Mobiles</li>
+        <li>Today's Deal</li>
+        <li>Customer service</li>
+        <li class="Aprime">
+          Prime<i class="fa fa-caret-down" aria-hidden="true"></i>
+          <div class="prime">
+            <h1>
+              Shopping plans <br />
+              starting at ₹399/year
+            </h1>
+            <p>Get FREE same/1-day delivery, Prime offers & more</p>
+            <img
+              class="img_1"
+              src="https://m.media-amazon.com/images/I/31yheAotKHL.png"
+              alt=""
+            />
+            <button type="submit">Join now</button><br />
+            <div class="img_2">
+              <img
+                src="https://m.media-amazon.com/images/I/81MtJerJTqL.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </li>
+        <li>Fashion</li>
+        <li>New Release</li>
+        <li>Amazon Pay</li>
+        <li>Electronic</li>
+        <li>Home & Kitchen</li>
+        <li>Electronics</li>
+      </ul>
+    </div>
+    <div class="home">
+      <div class="image">
+        <img
+          src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/af_unrec_h1._CB786855017_.jpg"
+          alt=""
+        />
+      </div>
+      <div class="box1">
+        <div class="Container1">
+          <h4>Revamp your home in style</h4>
+          <div class="con1_boxes">
+            <div class="con1_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_furnishings_2._SY116_CB555624324_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_decor_1._SY116_CB555624324_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_storage_1._SY116_CB555624324_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_lighting_2._SY116_CB555624324_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container2">
+          <h4>Bulk order discounts + Up to 18% GST savings</h4>
+          <div class="con2_boxes">
+            <div class="con2_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/nov/bau/ain/gw/Laptops_186_116_10._SY116_CB777673831_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/nov/bau/ain/gw/KitchenAppliances_186_116_10._SY116_CB777673831_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/nov/bau/ain/gw/OfficeChairs_186_116_10._SY116_CB777673831_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/dec/bau/ain/gw/ABdelivery_186_116._SY116_CB776314701_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container3">
+          <h4>Appliances for your home | Up to 55% off</h4>
+          <div class="con3_boxes">
+            <div class="con3_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08345R1ZW._SY116_CB667322346_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B07G5J5FYP._SY116_CB667322346_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/186x116---wm._SY116_CB667322346_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container4">
+          <div class="con4_box1">
+            <h2>Sign in for your best experience</h2>
+            <button type="submit">Sign in Securely</button>
+          </div>
+          <div class="con4_box2">
+            <img
+              src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT7LvjEWUe4OXwG3cWGoGhCMs9xKyuEPXKctqvInp36RWPIYEPH"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              placeat laborum adipisicing elit. Culpa placeat laborum
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="box2">
+        <div class="Container1">
+          <h4>Up to 50% off | Baby care & toys | Amazon Brands</h4>
+          <div class="con1_boxes">
+            <div class="con1_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/PB/GW/PC/PC_QC_372x232_Life-Style_2_1x._SY116_CB788857785_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/PB/GW/PC/PC_QC_372x232_Life-Style_1_1x._SY116_CB788857785_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/PB/GW/PC/PC_QC_372x232_Life-Style_3_1x._SY116_CB788857785_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con1_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/PB/GW/PC/PC_QC_372x232_Life-Style_4_1x._SY116_CB788857785_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container2">
+          <h4>Starting ₹199 | Amazon Brands & more</h4>
+          <div class="con2_boxes">
+            <div class="con2_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/March/Bikram/PC_QC_HOME_SIZE_186_2._SY116_CB567468236_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/March/Bikram/PC_QC_HOME_SIZE_186_3._SY116_CB567468236_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/March/Bikram/PC_QC_HOME_SIZE_186_4._SY116_CB567468236_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con2_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/March/Bikram/PC_QC_HOME_SIZE_186_1._SY116_CB567468236_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container3">
+          <h4>Automotive essentials | Up to 60% off</h4>
+          <div class="con3_boxes">
+            <div class="con3_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Auto/2020/GW/PCQC/Glasscare1X._SY116_CB410830553_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Auto/2020/GW/PCQC/Rim_tyrecare1x._SY116_CB410830552_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Auto/2020/GW/PCQC/Vega_helmet_186x116._SY116_CB405090404_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con3_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Auto/2020/GW/PCQC/Vaccum1x._SY116_CB410830552_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+        <div class="Container4">
+          <h4>Starting ₹49 | Deals on home essentials</h4>
+          <div class="con4_boxes">
+            <div class="con4_box1">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wipes_low_res_V1._SY116_CB549138744_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con4_box2">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Shower_heads_low_res_V1._SY116_CB549138744_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con4_box3">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="con4_box4">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wallpapers_low_res_V1._SY116_CB549138744_.jpg"
+                alt=""
+              />
+              <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item_con">
+      <div class="txt">
+        <h2>Related to items you've viewed</h2>
+        <p><a href="#">See more</a></p>
+      </div>
+      <div class="item_img">
+        <img
+          src="https://m.media-amazon.com/images/I/61ujWnTSvrL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41-F2gEM8UL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71jDNhSjTrL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/6148nnfaXRL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51DpLFmghaL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/613vUqiFgCL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41fYf00trxL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51FAVcBMd4L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51NIKFY4NtL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/31EinA3CuxL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/611LgxU0PdL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51OT2ZopQlL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/31ZPLcYbnDL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61aAQp+E9RL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/819uRc2OPZL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51DkHs69vIL._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="dress_con">
+      <div class="txt">
+        <h2>More items to consider</h2>
+        <p><a href="#">See more</a></p>
+      </div>
+      <div class="dress_img">
+        <img
+          src="https://m.media-amazon.com/images/I/71I53evweVL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71DCFWHFolL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71mX4WATh-L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51T42aZXalL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71l2sZoikXL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61IhrjrcrLL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/716gXBFZjjL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51XuMysl-xL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/713jWuxPG6L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51A4rCSVW9L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71T-yPIj-sL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/810v-fGAGLL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51sls44MzUL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/610InQb9rTL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61q5CWbukpL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/81IQzobx04L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/81IQzobx04L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71t36fW+BUL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/81qJ2svdHlL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71xKlbYndcL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51suEsggRLL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61PHOMhPdCL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/81S+2GhyIlL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/6185kU8ZLwL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71X5DF+c+gL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41zidgiJTLL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61Ow9mZcWEL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VpjokqnVL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/81otXBoExEL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/616taHvjmYL._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="box_4">
+      <div class="Container1">
+        <h4>Up to 40% off | Powering your everyday</h4>
+        <div class="con1_boxes">
+          <div class="con1_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/61alGBAPBKL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/61EXwcQyiPL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/61zOd9ElTLL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/81hY7R3MCoL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="Container2">
+        <h4>Best Sellers in Clothing & Accessories</h4>
+        <div class="con2_boxes">
+          <div class="con2_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/71I53evweVL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con2_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/51ZQzVWvFyL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con2_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/81biKixsaDL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con2_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/713n+TxyfCL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="Container3">
+        <h4>Min.35% off | Best selling products from Small Business</h4>
+        <div class="con3_boxes">
+          <div class="con3_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/71BSlWQ-UbL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con3_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/61JctlgNtGL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con3_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/81FWBIAxoiL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con3_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/716zylvcBrL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con3_box5">
+            <img
+              src="https://m.media-amazon.com/images/I/81fLFkRBdmL._AC_SY195_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con3_box6">
+            <img
+              src="https://m.media-amazon.com/images/I/717fll4a5bL._AC_SY195_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="txt">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+            fuga dolorum similique nam molestias adipisci magnam
+          </p>
+        </div>
+      </div>
+      <div class="Container4">
+        <h4>Customers' Most-Loved products</h4>
+        <div class="con4_boxes">
+          <div class="con4_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/71CezSHsVEL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/61I9Bst9qzL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/514xgSVesiL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/51fZv0VgQZL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bike_con">
+      <div class="txt">
+        <h2>Starting ₹70,348 | From daily commutes to weekend thrills</h2>
+        <p><a href="#">See all offers</a></p>
+      </div>
+      <div class="bike_img">
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61r4In4I21L._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="box3">
+      <div class="Container1">
+        <h4>Best Sellers in Home & Kitchen</h4>
+        <div class="con1_boxes">
+          <div class="con1_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/61fn1xtHO4L._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/71775fRr+gL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/81bmCoO7IsL._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con1_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/71qEqnkZg8L._AC_SY170_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="Container2">
+        <h4>Up to 40% off | Smart storage, clutter-free living</h4>
+        <div class="con2_boxes">
+          <div class="con2_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/61ujWnTSvrL._AC_SY175_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor, sit amet Lorem ipsum dolor, sit amet Lorem
+              ipsum dolor, sit amet Lorem ipsum dolor, sit amet
+            </p>
+          </div>
+          <div class="con2_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/61ujWnTSvrL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/51Sna9EJcEL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/61OWZVmAiDL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/71l+UG1R2ZL._AC_SY55_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="Container3">
+        <h4>Up to 60% off | Bestsellers from women-led brands</h4>
+        <div class="con3_boxes">
+          <div class="con3_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/71QED8-OFhL._AC_SY175_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor, sit amet Lorem ipsum dolor, sit amet Lorem
+              ipsum dolor, sit amet Lorem ipsum dolor, sit amet
+            </p>
+          </div>
+          <div class="con3_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/71QED8-OFhL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/31Wd-Zi+IUL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/81-qrPlQOCL._AC_SY55_.jpg"
+              alt=""
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/51m+q6k1lSL._AC_SY55_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="Container4">
+        <h4>Customers' Most-Loved Fashion for you</h4>
+        <div class="con4_boxes">
+          <div class="con4_box1">
+            <img
+              src="https://m.media-amazon.com/images/I/61UE51azLWL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box2">
+            <img
+              src="https://m.media-amazon.com/images/I/812vmmHIwvL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box3">
+            <img
+              src="https://m.media-amazon.com/images/I/61irmRn+6LL._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="con4_box4">
+            <img
+              src="https://m.media-amazon.com/images/I/71Zmqrerm3L._AC_SY145_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thing_con">
+      <div class="txt">
+        <h2>Min. 50% off | Unique home finds | Amazon Brands & more</h2>
+        <p><a href="#">See all</a></p>
+      </div>
+      <div class="thing_img">
+        <img
+          src="https://m.media-amazon.com/images/I/61vihvwHdBL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/51Oq79-eK-L._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61GfiZngyIL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61Qm+VXoCwL._AC_SY200_.jpg"
+          alt=""
+        /><img src="" alt="" /><img
+          src="https://m.media-amazon.com/images/I/61vihvwHdBL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/51Wjei45NzL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61sEyMFJ1qL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/51grqgqlvpL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/51wVmYlIb6L._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/71DAtqHZoyL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/71PPEO-O0kL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61CDlwqNwuL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61ZKmE+hC1L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71WeIKRhRZL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41Wt1ZrLKtL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71Il+hAxVWL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71Fp2VToLXL._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="one_item">
+      <img
+        src="https://m.media-amazon.com/images/I/71jDNhSjTrL._AC_SY200_.jpg"
+        alt=""
+      />
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, sint
+        velit. Sequi praesentium omnis debitis accusamus <br />
+        <button type="submit">Shop now</button>
+      </p>
+    </div>
+    <div class="kit_con">
+      <div class="txt">
+        <h2>
+          Up to 60% off | Cookware, kitchen tool & more | Amazon Launchpad
+        </h2>
+        <p><a href="#">See all</a></p>
+      </div>
+      <div class="kit_img">
+        <img
+          src="https://m.media-amazon.com/images/I/619sSmzbUjL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/513QTB9p4hL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61-l-DKrlsL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/71aHbP5M2HL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/51WmCssta3L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41ggFXk-slL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/512wpyNp2qL._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/5147plm+Q0L._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/5147plm+Q0L._AC_SY200_.jpg"
+          alt=""
+        /><img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61VtxIS36CL._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="watch">
+      <div class="txt">
+        <h2>Amazon LIVE - Watch, Chat & Shop LIVE</h2>
+        <p><a href="#">See more from Amazon live</a></p>
+      </div>
+      <div class="video-img">
+        <div class="video">
+          <video
+            autoplay
+            loop
+            muted
+            controls
+            src="https://www.amazon.in/live/broadcast/0c68fab8-8024-4eef-bc23-379d14e60e9e?ref_=cm_sw_r_cp_ud_cm_sw_al__VEB8PFR79EN5F518B20G"
+          ></video>
+          <p>Rukhsaar Sayeed <a href="#"> Earns commissions</a></p>
+        </div>
+        <div class="images">
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+          <div class="img">
+            <img
+              src="https://m.media-amazon.com/images/I/71wMKM6tsaL._SX160_QL100_AC_SCLZZZZZZZ_.jpg"
+              alt=""
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              voluptas voluptate fugit quam ipsum
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="summer_con">
+      <div class="txt">
+        <h2>Up to 50% off | Stay cool this summer</h2>
+        <p><a href="#">See all offer</a></p>
+      </div>
+      <div class="summer_img">
+        <img
+          src="https://m.media-amazon.com/images/I/311qTxyGTzL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/31Kihg6VqQL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/318vSTzlMlL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61gBjl3eqcL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51Bil67XcdL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/512Czc9pYaL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/516gAStB60L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/31qVXOx27PL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/515Ecenw2cL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/51SNVdSfblS._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41qvbNQdPCL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/419dkVEqR3L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/71eEguBzL8L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/41Hfjcy4+DL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61aJsems2ML._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/6109UsawC1L._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/418g9ieslnL._AC_SY200_.jpg"
+          alt=""
+        />
+        <img
+          src="https://m.media-amazon.com/images/I/61hPT95IbQL._AC_SY200_.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="text">
+      <hr />
+      <h1>See personalized recommendations</h1>
+      <button type="submit">Sign in</button>
+      <p>New Customer? <a href="#">Start here</a></p>
+      <hr />
+    </div>
+    <div class="footer">
+      <div class="btn">
+        <a href="#">Back to top</a>
+      </div>
+      <div class="footer1">
+        <ul>
+          <li class="li_1">Get to know us</li>
+          <li><a href="#">About amazon</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press release</a></li>
+          <li><a href="#">Amazon Science</a></li>
+        </ul>
+        <ul>
+          <li class="li_1">Connect with Us</li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+        <ul>
+          <li class="li_1">Make Money with Us</li>
+          <li><a href="#">Sell on Amazon</a></li>
+          <li><a href="#">Sell under Amazon accelerator</a></li>
+          <li><a href="#">Protect and Build your Brand</a></li>
+          <li><a href="#">Amazon Global Selling</a></li>
+          <li><a href="#">Supplyto amazon</a></li>
+          <li><a href="#">Become an affiliate</a></li>
+          <li><a href="#">Fulfilment by Amazon</a></li>
+          <li><a href="#">Advertise your Products</a></li>
+          <li><a href="#">Pay on Merchants</a></li>
+        </ul>
+        <ul>
+          <li class="li_1">Let Us Help You</li>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Return Centre</a></li>
+          <li><a href="#">Recalls and product safety Alerts</a></li>
+          <li><a href="#">100% Purchase Protection</a></li>
+          <li><a href="#">Amazon App Download</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+      <hr />
+      <div class="footer2">
+        <div class="f2_img">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+        </div>
+        <div class="f2_select">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <select name="English" id="" title="Language">
+            <!-- <i class="fa fa-globe" aria-hidden="true"></i> -->
+            <option value="">English</option>
+            <option value="">English</option>
+            <option value="">English</option>
+            <option value="">English</option>
+            <option value="">English</option>
+            <option value="">English</option>
+            <option value="">English</option>
+          </select>
+        </div>
+        <div class="img">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+          <p>India</p>
+        </div>
+      </div>
+    </div>
+    <div class="last_footer">
+      <div class="lastf_1">
+        <p>
+          <a href="#"
+            ><b class="bold">AbeBooks</b><br />Books, art & collectible</a
+          >
+        </p>
+        <p>
+          <a href="#"
+            ><b class="bold">Amazon Web Services</b><br />Scalable cloud
+            computing services</a
+          >
+        </p>
+        <p>
+          <a href="#"><b class="bold">Audible</b><br />Download Audio books</a>
+        </p>
+        <p>
+          <a href="#"><b class="bold">IMDb</b><br />Movies, TV & Celebrities</a>
+        </p>
+        <p>
+          <a href="#"
+            ><b class="bold">Shopbop</b><br />Designer Fashion Brands</a
+          >
+        </p>
+        <p>
+          <a href="#"
+            ><b class="bold">Amazon Bussiness</b><br />Everything for your
+            Busiiness</a
+          >
+        </p>
+        <p>
+          <a href="#"
+            ><b class="bold">Amazon Prime Music</b><br />100 Million songs,
+            ad-free<br />Over 15 Million Podcast episodes</a
+          >
+        </p>
+      </div>
+      <div class="lastf_2">
+        <a href="#">Conditions of use and sale</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Interest-based Ads</a>
+        <p>© 1996-2026, Amazon.com, Inc. or its affiliates</p>
+      </div>
+    </div>
+  </body>
+</html>
