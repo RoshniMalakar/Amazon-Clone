@@ -8,6 +8,7 @@ body {
 }
 .first_navbar {
   display: flex;
+  flex-wrap: nowrap;
   background-color: black;
   color: white;
   padding: 5px;
@@ -182,6 +183,7 @@ body {
   background-color: rgb(90, 86, 86);
   color: white;
   display: flex;
+  flex-wrap: nowrap;
   height: 40px;
   align-items: center;
 }
